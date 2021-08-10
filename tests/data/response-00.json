@@ -1,0 +1,16 @@
+{"status": "ok",
+ "time_server": 1234567890,
+ "body": [{"_id": "00:00:00:00:00:aa",
+           "place": {"location": [6.78, 46.47]},
+           "measures": {"00:00:00:00:00:00": {"res": {"1628812612": [24, 75]},
+                                              "type": ["temperature", "humidity"]}
+                       }
+          },
+          {"_id": "00:00:00:00:00:bb",
+           "place": {"location": [6.79, 46.47]},
+           "measures": {"00:00:00:00:00:01": {"res": {"1628812738": [25, 75]},
+                                              "type": ["temperature", "humidity"]}
+                       }
+          }
+         ]
+}
