@@ -4,12 +4,14 @@ import fire
 
 
 def help():
+    """Show CLI help."""
     print("netatmo_geopy")
     print("=" * len("netatmo_geopy"))
     print("Pythonic package to access Netatmo CWS data")
 
 
 def main():
+    """Main."""
     fire.Fire({"help": help})
 
 

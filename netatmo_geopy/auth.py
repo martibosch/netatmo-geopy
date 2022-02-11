@@ -9,6 +9,8 @@ __all__ = ["NetatmoConnect"]
 
 
 class RefreshOAuth2Session(requests_oauthlib.OAuth2Session):
+    """RefreshOAuth2Session."""
+
     # see https://github.com/requests/requests-oauthlib/issues/260
     def request(self, *args, **kwargs):
         try:
@@ -20,6 +22,8 @@ class RefreshOAuth2Session(requests_oauthlib.OAuth2Session):
 
 
 class NetatmoConnect(object):
+    """NetatmoConnect."""
+
     _session = None
     _token = None
 
@@ -32,10 +36,12 @@ class NetatmoConnect(object):
         self.scope = "read_station"
 
     def token_updater(self, token):
+        """Token updater."""
         self._token = token
 
     @property
     def session(self):
+        """Session."""
         if self._session is None:
             self._session = RefreshOAuth2Session(
                 client=oauth2.LegacyApplicationClient(
@@ -55,6 +61,7 @@ class NetatmoConnect(object):
 
     @property
     def token(self):
+        """Token."""
         if self._token is None:
             self._token = RefreshOAuth2Session(
                 client=oauth2.LegacyApplicationClient(

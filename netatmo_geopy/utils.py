@@ -19,7 +19,8 @@ def ts(style="datetime", template=None):
     style : str {"datetime", "date", "time"}
         Format the timestamp with this built-in template.
     template : str
-        If not None, format the timestamp with this template instead of one of the built-in styles.
+        If not None, format the timestamp with this template instead of one of the
+        built-in styles.
 
     Returns
     -------

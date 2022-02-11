@@ -1,3 +1,4 @@
+"""Settings."""
 import logging as lg
 
 # Netatmo API
