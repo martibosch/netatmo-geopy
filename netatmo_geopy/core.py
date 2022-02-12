@@ -124,10 +124,12 @@ def plot_snapshot(  # noqa: C901
     legend_position=None,
     legend_size=None,
     legend_pad=None,
+    title=None,
     add_basemap=None,
     attribution=None,
     subplot_kws=None,
     plot_kws=None,
+    set_title_kws=None,
     add_basemap_kws=None,
     append_axes_kws=None,
 ):
@@ -161,6 +163,11 @@ def plot_snapshot(  # noqa: C901
         Padding between the plot and legend axes, passed to
         `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the
         default value from `settings.DEFAULT_PLOT_LEGEND_PAD` is used.
+    title : bool or str, optional
+        Whether a title should be added to the plot. If True, the timestamp of the
+        snapshot (geo-data frame column) is used. It is also possible to pass a string
+        so that it is used as title label (instead of the timestamp). If None, the
+        default value from `settings.DEFAULT_PLOT_TITLE` is used.
     add_basemap : bool, optional
         Whether a basemap should be added to the plot using `contextily.add_basemap`. If
         None, the default value from `settings.DEFAULT_PLOT_ADD_BASEMAP` is used.
@@ -168,9 +175,11 @@ def plot_snapshot(  # noqa: C901
         Attribution text for the basemap source, added to the bottom of the plot, passed
         to `contextily.add_basemap`. If False, no attribution is added. If None, the
         default value from `settings.DEFAULT_PLOT_ATTRIBUTION` is used.
-    subplot_kws, plot_kws, add_basemap_kws, append_axes_kws : dict, optional
+    subplot_kws, plot_kws, set_title_kws, add_basemap_kws, append_axes_kws : dict, \
+                                                                             optional
         Keyword arguments passed to `matplotlib.pyplot.subplots`,
-        `geopandas.GeoDataFrame.plot`, `contextily.add_basemap` and
+        `geopandas.GeoDataFrame.plot`, `matplotlib.axes.Axes.set_title`,
+        `contextily.add_basemap` and
         `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes` respectively.
 
     Returns
@@ -217,6 +226,16 @@ def plot_snapshot(  # noqa: C901
     snapshot_gdf.plot(
         column=snapshot_column, cmap=cmap, ax=ax, legend=legend, **_plot_kws
     )
+    if title is None:
+        title = settings.DEFAULT_PLOT_TITLE
+    if title:
+        if title is True:
+            title_label = snapshot_column
+        elif isinstance(title, str):
+            title_label = title
+        if set_title_kws is None:
+            set_title_kws = {}
+        ax.set_title(title_label, **set_title_kws)
 
     # basemap
     if add_basemap is None:
