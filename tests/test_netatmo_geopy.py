@@ -2,13 +2,14 @@
 """Tests for `netatmo_geopy` package."""
 # pylint: disable=redefined-outer-name
 import json
+import logging as lg
 import time
 
 import numpy as np
 import pytest
 
 import netatmo_geopy as nat
-from netatmo_geopy import settings
+from netatmo_geopy import settings, utils
 
 
 @pytest.fixture
@@ -68,3 +69,12 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
     assert not np.array_equal(
         axes[0].collections[0].get_array(), axes[1].collections[0].get_array()
     )
+
+
+def test_logging():
+    # test logger
+    utils.log("test a fake default message")
+    utils.log("test a fake debug", level=lg.DEBUG)
+    utils.log("test a fake info", level=lg.INFO)
+    utils.log("test a fake warning", level=lg.WARNING)
+    utils.log("test a fake error", level=lg.ERROR)

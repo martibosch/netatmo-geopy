@@ -1,3 +1,5 @@
+import logging as lg
+
 # Netatmo API
 BASE_URL = "https://api.netatmo.com"
 OAUTH2_TOKEN_URL = f"{BASE_URL}/oauth2/token"
@@ -17,3 +19,10 @@ DEFAULT_PLOT_LEGEND_POSITION = "right"
 DEFAULT_PLOT_LEGEND_SIZE = "2.5%"
 DEFAULT_PLOT_LEGEND_PAD = 0.2
 DEFAULT_PLOT_ADD_BASEMAP = True
+
+# logging (mostly from `osmnx.utils`)
+LOG_FILE = False
+LOG_CONSOLE = False
+LOG_LEVEL = lg.INFO
+LOG_NAME = "netatmo-geopy"
+LOG_FILENAME = "netatmo-geopy"

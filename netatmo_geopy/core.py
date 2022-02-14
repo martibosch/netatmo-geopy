@@ -2,6 +2,7 @@
 import glob
 import json
 import pathlib as pl
+import re
 import time
 from datetime import datetime
 from functools import reduce
@@ -17,7 +18,7 @@ from fiona import errors as fiona_errors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from shapely import geometry
 
-from . import auth, settings
+from . import auth, settings, utils
 
 __all__ = ["plot_snapshot", "CWSRecorder", "CWSDataset"]
 
@@ -52,7 +53,11 @@ def _get_public_data(
         required_data="temperature",
     )
 
-    return conn.session.get(settings.PUBLIC_DATA_URL, data=public_data_dict).json()
+    response = conn.session.get(settings.PUBLIC_DATA_URL, data=public_data_dict)
+    size_kb = len(response.content) / 1000
+    domain = re.findall(r"(?s)//(.*?)/", settings.PUBLIC_DATA_URL)[0]
+    utils.log(f"Downloaded {size_kb:,.2f}kB from {domain}")
+    return response.json()
 
 
 def _gdf_from_response_json(response_json, datetime_format):
@@ -284,6 +289,7 @@ class CWSRecorder(object):
             )
             with open(dst_response_filepath, "w") as dst:
                 json.dump(response_json, dst)
+            utils.log(f"Dumped response to file '{dst_response_filepath}'")
 
         return snapshot_gdf
 
@@ -293,6 +299,7 @@ class CWSRecorder(object):
             self.dst_dir, f"{_get_basename(snapshot_gdf)}.{self.snapshot_file_ext}"
         )
         snapshot_gdf.to_file(dst_filepath)
+        utils.log(f"Dumped snapshot geo-data frame to file '{dst_filepath}'")
 
 
 class CWSDataset(object):
