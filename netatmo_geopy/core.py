@@ -276,8 +276,8 @@ class CWSRecorder(object):
         lat_sw,
         lon_ne,
         lat_ne,
-        dst_dir,
         *,
+        dst_dir=None,
         client_id=None,
         client_secret=None,
         username=None,
@@ -298,8 +298,10 @@ class CWSRecorder(object):
         ----------
         lon_sw, lat_sw, lon_ne, lat_ne : numeric
             Latitude/longitude coordinates of the bounds of the region of interest
-        dst_dir : str or pathlib.Path object
-            Path to the directory where the recorded snapshots are to be dumped.
+        dst_dir : str or pathlib.Path object, optional
+            Path to the directory where the recorded snapshots are to be dumped. Only
+            used when the `dump_snapshot_gdf` method is called, ignored otherwise. If
+            None, the default value from `settings.DEAFULT_DST_DIR`.
         client_id, client_secret, username, password : str, optional
             Authentication credentials for Netatmo. If None, the respective values set
             in the "NETATMO_CLIENT_ID", "NETATMO_CLIENT_SECRET", "NETATMO_USERNAME" and

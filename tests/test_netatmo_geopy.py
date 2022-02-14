@@ -5,9 +5,10 @@ import json
 import logging as lg
 import time
 
-import netatmo_geopy as nat
 import numpy as np
 import pytest
+
+import netatmo_geopy as nat
 from netatmo_geopy import settings, utils
 
 
@@ -34,7 +35,7 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
         2,
         3,
         4,
-        datadir,
+        dst_dir=datadir,
         client_id="abcd",
         client_secret="abcd",
         username="john",

@@ -7,6 +7,7 @@ OAUTH2_TOKEN_URL = f"{BASE_URL}/oauth2/token"
 PUBLIC_DATA_URL = f"{BASE_URL}/api/getpublicdata"
 
 # recording/IO
+DEFAULT_DST_DIR = "./snapshot-data"
 DEFAULT_DATETIME_FORMAT = "%Y-%m-%dT%H:%M"
 DEFAULT_SNAPSHOT_FILE_EXT = "gpkg"
 DEFAULT_SAVE_RESPONSES = False
