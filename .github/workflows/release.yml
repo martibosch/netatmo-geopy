@@ -39,6 +39,7 @@ jobs:
           prWoLabels: true
           unreleased: true
           addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
+          sinceTag: v0.1.0
           output: CHANGELOG.md
 
       - uses: actions/setup-python@v2
@@ -54,12 +55,6 @@ jobs:
         run: |
           poetry install -E doc
           poetry run mkdocs build
-
-      - name: publish documentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./site
 
       - name: Build wheels and source tarball
         run: >-
