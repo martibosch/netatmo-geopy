@@ -25,7 +25,7 @@ DEFAULT_PLOT_ADD_BASEMAP = True
 
 # logging (mostly from `osmnx.utils`)
 LOG_FILE = False
-LOG_CONSOLE = False
+LOG_CONSOLE = True
 LOG_LEVEL = lg.INFO
 LOG_NAME = "netatmo-geopy"
 LOG_FILENAME = "netatmo-geopy"
