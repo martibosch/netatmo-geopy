@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>API - Netatmo GeoPy</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "API";
+    var mkdocs_page_input_path = "api.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Netatmo GeoPy</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">API</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../authors/">Authors</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../history/">History</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Netatmo GeoPy</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/martibosch/netatmo-geopy/edit/master/docs/api.md"> Edit on netatmo-geopy</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#netatmo_geopy" id="netatmo_geopy" style="visibility: hidden; position: absolute;">
+        </h2>
+<div class="doc doc-contents first">
+<p>Top-level package for Netatmo GeoPy.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="netatmo_geopy.auth">
+
+        <code>auth</code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Authentication.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="netatmo_geopy.auth.NetatmoConnect">
+
+        <code>NetatmoConnect</code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>NetatmoConnect.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-attribute">
+<h4 class="doc doc-heading" id="netatmo_geopy.auth.NetatmoConnect.session">
+
+        <code class="highlight">
+session        </code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Session.</p>
+</div>
+</div>
+<div class="doc doc-object doc-attribute">
+<h4 class="doc doc-heading" id="netatmo_geopy.auth.NetatmoConnect.token">
+
+        <code class="highlight">
+token        </code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Token.</p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.auth.NetatmoConnect.token_updater">
+
+        <code class="highlight language-python">
+token_updater<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>        </code>
+
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Token updater.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/auth.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">token_updater</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+    <span class="sd">"""Token updater."""</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_token</span> <span class="o">=</span> <span class="n">token</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="netatmo_geopy.auth.RefreshOAuth2Session">
+
+        <code>RefreshOAuth2Session</code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>RefreshOAuth2Session.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.auth.RefreshOAuth2Session.request">
+
+        <code class="highlight language-python">
+request<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>        </code>
+
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Intercept all requests and add the OAuth 2 token if present.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/auth.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">oauth2</span><span class="o">.</span><span class="n">TokenExpiredError</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_token</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">auto_refresh_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_updater</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="netatmo_geopy.cli">
+
+        <code>cli</code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Console script for netatmo_geopy.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="netatmo_geopy.cli.help">
+
+        <code class="highlight language-python">
+help<span class="p">()</span>        </code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Show CLI help.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/cli.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">help</span><span class="p">():</span>
+    <span class="sd">"""Show CLI help."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"netatmo_geopy"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="s2">"netatmo_geopy"</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Pythonic package to access Netatmo CWS data"</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="netatmo_geopy.cli.main">
+
+        <code class="highlight language-python">
+main<span class="p">()</span>        </code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Main.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/cli.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">"""Main."""</span>
+    <span class="n">fire</span><span class="o">.</span><span class="n">Fire</span><span class="p">({</span><span class="s2">"help"</span><span class="p">:</span> <span class="n">help</span><span class="p">})</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="netatmo_geopy.core">
+
+        <code>core</code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Main module.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="netatmo_geopy.core.CWSDataset">
+
+        <code>CWSDataset</code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>CWSDataset.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-attribute">
+<h4 class="doc doc-heading" id="netatmo_geopy.core.CWSDataset.temperature_gdf">
+
+        <code class="highlight">
+temperature_gdf        </code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Time series of temperature measurements at the station locations.</p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.core.CWSDataset.__init__">
+
+        <code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">snapshot_filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snapshot_data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snapshot_file_ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">datetime_format</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Initialize a CWS dataset from recorded snapshot files.</p>
+<h2 id="parameters">Parameters</h2>
+<p>snapshot_filepaths : list-like of str, path or file-like objects, optional
+    List of paths to the input snapshot recording files, passed to
+    <code>geopandas.read_file</code>.
+snapshot_data_dir : str or pathlib.Path object
+    Path to the directory where the snapshot recording files are located.
+    Ignored if <code>snapshot_filepaths</code> is provided.
+snapshot_file_ext : str, optional
+    File extension of the snapshot recording, used to obtain the list of input
+    files in <code>snapshot_data_dir</code>. If None, the default value from
+    <code>settings.DEFAULT_SNAPSHOT_FILE_EXT</code> is used. Ignored if
+    <code>snapshot_filepaths</code> is provided.
+datetime_format : str, optional
+    Datetime format string. Used to name the geo-data frame columns and the
+    snapshot file dumps. If None, the default value from
+    <code>settings.DEFAULT_DATETIME_FORMAT</code> is used.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/core.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">snapshot_filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">snapshot_data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">snapshot_file_ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">datetime_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Initialize a CWS dataset from recorded snapshot files.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    snapshot_filepaths : list-like of str, path or file-like objects, optional</span>
+<span class="sd">        List of paths to the input snapshot recording files, passed to</span>
+<span class="sd">        `geopandas.read_file`.</span>
+<span class="sd">    snapshot_data_dir : str or pathlib.Path object</span>
+<span class="sd">        Path to the directory where the snapshot recording files are located.</span>
+<span class="sd">        Ignored if `snapshot_filepaths` is provided.</span>
+<span class="sd">    snapshot_file_ext : str, optional</span>
+<span class="sd">        File extension of the snapshot recording, used to obtain the list of input</span>
+<span class="sd">        files in `snapshot_data_dir`. If None, the default value from</span>
+<span class="sd">        `settings.DEFAULT_SNAPSHOT_FILE_EXT` is used. Ignored if</span>
+<span class="sd">        `snapshot_filepaths` is provided.</span>
+<span class="sd">    datetime_format : str, optional</span>
+<span class="sd">        Datetime format string. Used to name the geo-data frame columns and the</span>
+<span class="sd">        snapshot file dumps. If None, the default value from</span>
+<span class="sd">        `settings.DEFAULT_DATETIME_FORMAT` is used.</span>
+<span class="sd">    """</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">CWSDataset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">snapshot_filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">snapshot_file_ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">snapshot_file_ext</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_SNAPSHOT_FILE_EXT</span>
+        <span class="n">snapshot_filepaths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">snapshot_data_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"*.</span><span class="si">{</span><span class="n">snapshot_file_ext</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">snapshot_filepaths</span> <span class="o">=</span> <span class="n">snapshot_filepaths</span>
+
+    <span class="k">if</span> <span class="n">datetime_format</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">datetime_format</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_DATETIME_FORMAT</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">datetime_format</span> <span class="o">=</span> <span class="n">datetime_format</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-class">
+<h3 class="doc doc-heading" id="netatmo_geopy.core.CWSRecorder">
+
+        <code>CWSRecorder</code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>CWSRecorder.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.core.CWSRecorder.__init__">
+
+        <code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lon_sw</span><span class="p">,</span> <span class="n">lat_sw</span><span class="p">,</span> <span class="n">lon_ne</span><span class="p">,</span> <span class="n">lat_ne</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dst_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">client_secret</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">datetime_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">snapshot_file_ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_responses</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_responses_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Initialize a CWS recorder for a given region.</p>
+<h2 id="parameters">Parameters</h2>
+<p>lon_sw, lat_sw, lon_ne, lat_ne : numeric
+    Latitude/longitude coordinates of the bounds of the region of interest
+dst_dir : str or pathlib.Path object, optional
+    Path to the directory where the recorded snapshots are to be dumped. Only
+    used when the <code>dump_snapshot_gdf</code> method is called, ignored otherwise. If
+    None, the default value from <code>settings.DEAFULT_DST_DIR</code>.
+client_id, client_secret, username, password : str, optional
+    Authentication credentials for Netatmo. If None, the respective values set
+    in the "NETATMO_CLIENT_ID", "NETATMO_CLIENT_SECRET", "NETATMO_USERNAME" and
+    "NETATMO_PASSWORD" environment variables are used.
+time_unit : str {"second", "seconds", "minute", "minutes", "hour", "hours",                     "day", "days", "week", "weeks", "monday", "tuesday", "wednesday",                     "thursday", "friday", "saturday", "sunday"}, optional
+    Time unit. If None, no snaphots are taken periodically - snapshots are only
+    taken by manually calling <code>get_snapshot_gdf</code> or <code>dump_snapshot_gdf</code>.
+interval : int, optional
+    Quantity of the time unit set in <code>time_unit</code>, altogether defining the
+    interval between snapshots. If None, the default value from the <code>schedule</code>
+    library, i.e., 1, is used. Ignored if <code>time_unit</code> is None.
+at : str, optional
+    Time string defining the particular time when snapshots are taken. See also
+    https://schedule.readthedocs.io/en/stable/reference.html#schedule.Job.at.
+    Ignored if <code>time_unit</code> is None. The following formats are accepted:</p>
+<pre><code>* for daily jobs -&gt; HH:MM:SS or HH:MM
+* for hourly jobs -&gt; MM:SS or :MM
+* for minute jobs -&gt; :SS.
+</code></pre>
+<p>until : datetime.datetime, datetime.timedelta, datetime.time or str, optional
+    Latest time (in the future) when a snapshot will be taken. If None, the
+    periodic snapshots are taken indefinetly. Ignored if <code>time_unit</code> is None.
+    The following formats are accepted:</p>
+<pre><code>* datetime.datetime
+* datetime.timedelta
+* datetime.time
+* string in one of the following formats: "%Y-%m-%d %H:%M:%S",
+  "%Y-%m-%d %H:%M", "%Y-%m-%d", "%H:%M:%S", "%H:%M" as defined by
+  `datetime.strptime` behaviour.
+</code></pre>
+<p>datetime_format : str, optional
+    Datetime format string. Used to name the geo-data frame columns and the
+    snapshot file dumps. If None, the default value from
+    <code>settings.DEFAULT_DATETIME_FORMAT</code> is used.
+snapshot_file_ext : str, optional
+    File extension used when dumping recorded snapshot files, which must match
+    an OGR vector format driver (see <code>fiona.supported_drivers</code>). If None, the
+    default value from <code>settings.DEFAULT_SNAPSHOT_FILE_EXT</code> is used.
+save_responses : bool, optional
+    Whether the JSON responses from the Netatmo public data API calls are
+    stored. If None, the default value from <code>settings.DEFAULT_SAVE_RESPONSES</code>is
+    used.
+save_responses_dir : str or pathlib.Path object, optional.
+    Path to the directory where the JSON responses are to be stored. If None,
+    the default value from <code>settings.DEFAULT_SAVE_RESPONSES_DIR</code>is used. Ignored
+    if <code>save_responses</code> is False.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/core.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">lon_sw</span><span class="p">,</span>
+    <span class="n">lat_sw</span><span class="p">,</span>
+    <span class="n">lon_ne</span><span class="p">,</span>
+    <span class="n">lat_ne</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">dst_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">client_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">client_secret</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">time_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">interval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">at</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">until</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">datetime_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">snapshot_file_ext</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">save_responses</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">save_responses_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Initialize a CWS recorder for a given region.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lon_sw, lat_sw, lon_ne, lat_ne : numeric</span>
+<span class="sd">        Latitude/longitude coordinates of the bounds of the region of interest</span>
+<span class="sd">    dst_dir : str or pathlib.Path object, optional</span>
+<span class="sd">        Path to the directory where the recorded snapshots are to be dumped. Only</span>
+<span class="sd">        used when the `dump_snapshot_gdf` method is called, ignored otherwise. If</span>
+<span class="sd">        None, the default value from `settings.DEAFULT_DST_DIR`.</span>
+<span class="sd">    client_id, client_secret, username, password : str, optional</span>
+<span class="sd">        Authentication credentials for Netatmo. If None, the respective values set</span>
+<span class="sd">        in the "NETATMO_CLIENT_ID", "NETATMO_CLIENT_SECRET", "NETATMO_USERNAME" and</span>
+<span class="sd">        "NETATMO_PASSWORD" environment variables are used.</span>
+<span class="sd">    time_unit : str {"second", "seconds", "minute", "minutes", "hour", "hours", \</span>
+<span class="sd">                "day", "days", "week", "weeks", "monday", "tuesday", "wednesday", \</span>
+<span class="sd">                "thursday", "friday", "saturday", "sunday"}, optional</span>
+<span class="sd">        Time unit. If None, no snaphots are taken periodically - snapshots are only</span>
+<span class="sd">        taken by manually calling `get_snapshot_gdf` or `dump_snapshot_gdf`.</span>
+<span class="sd">    interval : int, optional</span>
+<span class="sd">        Quantity of the time unit set in `time_unit`, altogether defining the</span>
+<span class="sd">        interval between snapshots. If None, the default value from the `schedule`</span>
+<span class="sd">        library, i.e., 1, is used. Ignored if `time_unit` is None.</span>
+<span class="sd">    at : str, optional</span>
+<span class="sd">        Time string defining the particular time when snapshots are taken. See also</span>
+<span class="sd">        https://schedule.readthedocs.io/en/stable/reference.html#schedule.Job.at.</span>
+<span class="sd">        Ignored if `time_unit` is None. The following formats are accepted:</span>
+
+<span class="sd">        * for daily jobs -&gt; HH:MM:SS or HH:MM</span>
+<span class="sd">        * for hourly jobs -&gt; MM:SS or :MM</span>
+<span class="sd">        * for minute jobs -&gt; :SS.</span>
+<span class="sd">    until : datetime.datetime, datetime.timedelta, datetime.time or str, optional</span>
+<span class="sd">        Latest time (in the future) when a snapshot will be taken. If None, the</span>
+<span class="sd">        periodic snapshots are taken indefinetly. Ignored if `time_unit` is None.</span>
+<span class="sd">        The following formats are accepted:</span>
+
+<span class="sd">        * datetime.datetime</span>
+<span class="sd">        * datetime.timedelta</span>
+<span class="sd">        * datetime.time</span>
+<span class="sd">        * string in one of the following formats: "%Y-%m-%d %H:%M:%S",</span>
+<span class="sd">          "%Y-%m-%d %H:%M", "%Y-%m-%d", "%H:%M:%S", "%H:%M" as defined by</span>
+<span class="sd">          `datetime.strptime` behaviour.</span>
+<span class="sd">    datetime_format : str, optional</span>
+<span class="sd">        Datetime format string. Used to name the geo-data frame columns and the</span>
+<span class="sd">        snapshot file dumps. If None, the default value from</span>
+<span class="sd">        `settings.DEFAULT_DATETIME_FORMAT` is used.</span>
+<span class="sd">    snapshot_file_ext : str, optional</span>
+<span class="sd">        File extension used when dumping recorded snapshot files, which must match</span>
+<span class="sd">        an OGR vector format driver (see `fiona.supported_drivers`). If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_SNAPSHOT_FILE_EXT` is used.</span>
+<span class="sd">    save_responses : bool, optional</span>
+<span class="sd">        Whether the JSON responses from the Netatmo public data API calls are</span>
+<span class="sd">        stored. If None, the default value from `settings.DEFAULT_SAVE_RESPONSES`is</span>
+<span class="sd">        used.</span>
+<span class="sd">    save_responses_dir : str or pathlib.Path object, optional.</span>
+<span class="sd">        Path to the directory where the JSON responses are to be stored. If None,</span>
+<span class="sd">        the default value from `settings.DEFAULT_SAVE_RESPONSES_DIR`is used. Ignored</span>
+<span class="sd">        if `save_responses` is False.</span>
+<span class="sd">    """</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">CWSRecorder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">lon_sw</span> <span class="o">=</span> <span class="n">lon_sw</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lat_sw</span> <span class="o">=</span> <span class="n">lat_sw</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lon_ne</span> <span class="o">=</span> <span class="n">lon_ne</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lat_ne</span> <span class="o">=</span> <span class="n">lat_ne</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dst_dir</span> <span class="o">=</span> <span class="n">dst_dir</span>
+
+    <span class="c1"># auth</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_client_secret</span> <span class="o">=</span> <span class="n">client_secret</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_username</span> <span class="o">=</span> <span class="n">username</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">password</span>
+
+    <span class="c1"># IO</span>
+    <span class="k">if</span> <span class="n">datetime_format</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">datetime_format</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_DATETIME_FORMAT</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">datetime_format</span> <span class="o">=</span> <span class="n">datetime_format</span>
+    <span class="k">if</span> <span class="n">snapshot_file_ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">snapshot_file_ext</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_SNAPSHOT_FILE_EXT</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">snapshot_file_ext</span> <span class="o">=</span> <span class="n">snapshot_file_ext</span>
+    <span class="k">if</span> <span class="n">save_responses</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">save_responses</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_SAVE_RESPONSES</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">save_responses</span> <span class="o">=</span> <span class="n">save_responses</span>
+    <span class="k">if</span> <span class="n">save_responses_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">save_responses_dir</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_SAVE_RESPONSES_DIR</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">save_responses_dir</span> <span class="o">=</span> <span class="n">save_responses_dir</span>
+
+    <span class="c1"># schedule</span>
+    <span class="k">if</span> <span class="n">time_unit</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">interval</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">schedule</span><span class="o">.</span><span class="n">every</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">schedule</span><span class="o">.</span><span class="n">every</span><span class="p">()</span>
+        <span class="n">caller</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">caller</span><span class="p">,</span> <span class="n">time_unit</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">at</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">caller</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">at</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">until</span><span class="p">:</span>
+            <span class="n">caller</span> <span class="o">=</span> <span class="n">caller</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">until</span><span class="p">)</span>
+        <span class="n">caller</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dump_snapshot_gdf</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">schedule</span><span class="o">.</span><span class="n">get_jobs</span><span class="p">():</span>
+            <span class="n">schedule</span><span class="o">.</span><span class="n">run_pending</span><span class="p">()</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.core.CWSRecorder.dump_snapshot_gdf">
+
+        <code class="highlight language-python">
+dump_snapshot_gdf<span class="p">(</span><span class="bp">self</span><span class="p">)</span>        </code>
+
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Get current CWS temperature snapshot and dump it to a file.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/core.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">dump_snapshot_gdf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">"""Get current CWS temperature snapshot and dump it to a file."""</span>
+    <span class="n">snapshot_gdf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_snapshot_gdf</span><span class="p">()</span>
+    <span class="n">dst_filepath</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dst_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_get_basename</span><span class="p">(</span><span class="n">snapshot_gdf</span><span class="p">)</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">snapshot_file_ext</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">)</span>
+    <span class="n">snapshot_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">dst_filepath</span><span class="p">)</span>
+    <span class="n">utils</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dumped snapshot geo-data frame to file '</span><span class="si">{</span><span class="n">dst_filepath</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h4 class="doc doc-heading" id="netatmo_geopy.core.CWSRecorder.get_snapshot_gdf">
+
+        <code class="highlight language-python">
+get_snapshot_gdf<span class="p">(</span><span class="bp">self</span><span class="p">)</span>        </code>
+
+
+      </h4>
+<div class="doc doc-contents ">
+<p>Get current CWS temperature snapshot.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/core.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_snapshot_gdf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">"""Get current CWS temperature snapshot."""</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="n">_get_public_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon_sw</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lat_sw</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lon_ne</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lat_ne</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_client_id</span><span class="p">,</span>
+        <span class="n">client_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_client_secret</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_username</span><span class="p">,</span>
+        <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_password</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">snapshot_gdf</span> <span class="o">=</span> <span class="n">_gdf_from_response_json</span><span class="p">(</span><span class="n">response_json</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">datetime_format</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_responses</span><span class="p">:</span>
+        <span class="n">dst_response_filepath</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_responses_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_get_basename</span><span class="p">(</span><span class="n">snapshot_gdf</span><span class="p">)</span><span class="si">}</span><span class="s2">.json"</span>
+        <span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dst_response_filepath</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">response_json</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dumped response to file '</span><span class="si">{</span><span class="n">dst_response_filepath</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">snapshot_gdf</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="netatmo_geopy.core.plot_snapshot">
+
+        <code class="highlight language-python">
+plot_snapshot<span class="p">(</span><span class="n">snapshot_gdf</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">snapshot_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">add_basemap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subplot_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plot_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">set_title_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">add_basemap_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">append_axes_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Plot a snapshot of station measurements.</p>
+<h2 id="parameters">Parameters</h2>
+<p>snapshot_gdf : geopandas.GeoDataFrame
+    Geo-data frame of CWS temperature measurements.
+snapshot_column : str, optional
+    Column of CWS temperature measurements to plot. If None, the first column (other
+    than <code>geometry</code>) is used.
+ax : <code>matplotlib.axes.Axes</code> instancd, optional
+    Plot in given axis. If None creates a new figure.
+cmap : str or <code>matplotlib.colors.Colormap</code> instance, optional
+    Colormap of the plot. If None, the default value from
+    <code>settings.DEFAULT_PLOT_CMAP</code> is used.
+legend : bool, optional
+    Whether a legend should be added to the plot. If None, the default value from
+    <code>settings.DEFAULT_PLOT_LEGEND</code> is used.
+legend_position : str {"left", "right", "bottom", "top"}, optional
+    Position of the legend axes, passed to
+    <code>mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes</code>. If None, the
+    default value from <code>settings.DEFAULT_PLOT_LEGEND_POSITION</code> is used.
+legend_size : numeric or str, optional
+    Size of the legend axes, passed to
+    <code>mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes</code>. If None, the
+    default value from <code>settings.DEFAULT_PLOT_LEGEND_SIZE</code> is used.
+legend_pad : numeric or str, optional
+    Padding between the plot and legend axes, passed to
+    <code>mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes</code>. If None, the
+    default value from <code>settings.DEFAULT_PLOT_LEGEND_PAD</code> is used.
+title : bool or str, optional
+    Whether a title should be added to the plot. If True, the timestamp of the
+    snapshot (geo-data frame column) is used. It is also possible to pass a string
+    so that it is used as title label (instead of the timestamp). If None, the
+    default value from <code>settings.DEFAULT_PLOT_TITLE</code> is used.
+add_basemap : bool, optional
+    Whether a basemap should be added to the plot using <code>contextily.add_basemap</code>. If
+    None, the default value from <code>settings.DEFAULT_PLOT_ADD_BASEMAP</code> is used.
+attribution : str or bool, optional
+    Attribution text for the basemap source, added to the bottom of the plot, passed
+    to <code>contextily.add_basemap</code>. If False, no attribution is added. If None, the
+    default value from <code>settings.DEFAULT_PLOT_ATTRIBUTION</code> is used.
+subplot_kws, plot_kws, set_title_kws, add_basemap_kws, append_axes_kws : dict,                                                                              optional
+    Keyword arguments passed to <code>matplotlib.pyplot.subplots</code>,
+    <code>geopandas.GeoDataFrame.plot</code>, <code>matplotlib.axes.Axes.set_title</code>,
+    <code>contextily.add_basemap</code> and
+    <code>mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes</code> respectively.</p>
+<h2 id="returns">Returns</h2>
+<p>ax : <code>matplotlib.axes.Axes</code>
+    Axes with the plot drawn onto it.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/core.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot_snapshot</span><span class="p">(</span>  <span class="c1"># noqa: C901</span>
+    <span class="n">snapshot_gdf</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">snapshot_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">legend_position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">legend_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">legend_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">add_basemap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">subplot_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">plot_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">set_title_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">add_basemap_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">append_axes_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Plot a snapshot of station measurements.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    snapshot_gdf : geopandas.GeoDataFrame</span>
+<span class="sd">        Geo-data frame of CWS temperature measurements.</span>
+<span class="sd">    snapshot_column : str, optional</span>
+<span class="sd">        Column of CWS temperature measurements to plot. If None, the first column (other</span>
+<span class="sd">        than `geometry`) is used.</span>
+<span class="sd">    ax : `matplotlib.axes.Axes` instancd, optional</span>
+<span class="sd">        Plot in given axis. If None creates a new figure.</span>
+<span class="sd">    cmap : str or `matplotlib.colors.Colormap` instance, optional</span>
+<span class="sd">        Colormap of the plot. If None, the default value from</span>
+<span class="sd">        `settings.DEFAULT_PLOT_CMAP` is used.</span>
+<span class="sd">    legend : bool, optional</span>
+<span class="sd">        Whether a legend should be added to the plot. If None, the default value from</span>
+<span class="sd">        `settings.DEFAULT_PLOT_LEGEND` is used.</span>
+<span class="sd">    legend_position : str {"left", "right", "bottom", "top"}, optional</span>
+<span class="sd">        Position of the legend axes, passed to</span>
+<span class="sd">        `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_PLOT_LEGEND_POSITION` is used.</span>
+<span class="sd">    legend_size : numeric or str, optional</span>
+<span class="sd">        Size of the legend axes, passed to</span>
+<span class="sd">        `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_PLOT_LEGEND_SIZE` is used.</span>
+<span class="sd">    legend_pad : numeric or str, optional</span>
+<span class="sd">        Padding between the plot and legend axes, passed to</span>
+<span class="sd">        `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_PLOT_LEGEND_PAD` is used.</span>
+<span class="sd">    title : bool or str, optional</span>
+<span class="sd">        Whether a title should be added to the plot. If True, the timestamp of the</span>
+<span class="sd">        snapshot (geo-data frame column) is used. It is also possible to pass a string</span>
+<span class="sd">        so that it is used as title label (instead of the timestamp). If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_PLOT_TITLE` is used.</span>
+<span class="sd">    add_basemap : bool, optional</span>
+<span class="sd">        Whether a basemap should be added to the plot using `contextily.add_basemap`. If</span>
+<span class="sd">        None, the default value from `settings.DEFAULT_PLOT_ADD_BASEMAP` is used.</span>
+<span class="sd">    attribution : str or bool, optional</span>
+<span class="sd">        Attribution text for the basemap source, added to the bottom of the plot, passed</span>
+<span class="sd">        to `contextily.add_basemap`. If False, no attribution is added. If None, the</span>
+<span class="sd">        default value from `settings.DEFAULT_PLOT_ATTRIBUTION` is used.</span>
+<span class="sd">    subplot_kws, plot_kws, set_title_kws, add_basemap_kws, append_axes_kws : dict, \</span>
+<span class="sd">                                                                             optional</span>
+<span class="sd">        Keyword arguments passed to `matplotlib.pyplot.subplots`,</span>
+<span class="sd">        `geopandas.GeoDataFrame.plot`, `matplotlib.axes.Axes.set_title`,</span>
+<span class="sd">        `contextily.add_basemap` and</span>
+<span class="sd">        `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes` respectively.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax : `matplotlib.axes.Axes`</span>
+<span class="sd">        Axes with the plot drawn onto it.</span>
+<span class="sd">    """</span>
+    <span class="c1"># if no column is provided, we plot the "first" column other than "geometry"</span>
+    <span class="k">if</span> <span class="n">snapshot_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">snapshot_column</span> <span class="o">=</span> <span class="n">snapshot_gdf</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"geometry"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># subplots arguments</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subplot_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">subplot_kws</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="o">**</span><span class="n">subplot_kws</span><span class="p">)</span>
+    <span class="c1"># plot arguments</span>
+    <span class="k">if</span> <span class="n">plot_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_plot_kws</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_plot_kws</span> <span class="o">=</span> <span class="n">plot_kws</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1"># _plot_kws = {key: plot_kws[key] for key in plot_kws}</span>
+    <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">_plot_kws</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"cmap"</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_CMAP</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">legend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">_plot_kws</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"legend"</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_LEGEND</span><span class="p">)</span>
+
+    <span class="c1"># plot</span>
+    <span class="k">if</span> <span class="n">legend</span><span class="p">:</span>
+        <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">legend_position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_position</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_LEGEND_POSITION</span>
+        <span class="k">if</span> <span class="n">legend_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_size</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_LEGEND_SIZE</span>
+        <span class="k">if</span> <span class="n">append_axes_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_append_axes_kws</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_append_axes_kws</span> <span class="o">=</span> <span class="n">append_axes_kws</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">legend_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_pad</span> <span class="o">=</span> <span class="n">_append_axes_kws</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"pad"</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_LEGEND_PAD</span><span class="p">)</span>
+        <span class="n">_plot_kws</span><span class="p">[</span><span class="s2">"cax"</span><span class="p">]</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span>
+            <span class="n">legend_position</span><span class="p">,</span> <span class="n">legend_size</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="n">legend_pad</span><span class="p">,</span> <span class="o">**</span><span class="n">_append_axes_kws</span>
+        <span class="p">)</span>
+    <span class="n">snapshot_gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">column</span><span class="o">=</span><span class="n">snapshot_column</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span> <span class="o">**</span><span class="n">_plot_kws</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_TITLE</span>
+    <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">title_label</span> <span class="o">=</span> <span class="n">snapshot_column</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">title_label</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="k">if</span> <span class="n">set_title_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">set_title_kws</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title_label</span><span class="p">,</span> <span class="o">**</span><span class="n">set_title_kws</span><span class="p">)</span>
+
+    <span class="c1"># basemap</span>
+    <span class="k">if</span> <span class="n">add_basemap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">add_basemap</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_ADD_BASEMAP</span>
+    <span class="k">if</span> <span class="n">add_basemap</span><span class="p">:</span>
+        <span class="c1"># raise ImportError(</span>
+        <span class="c1">#     "The contextily package is required for adding basemaps. "</span>
+        <span class="c1">#     "You can install it using 'conda install -c conda-forge contextily' or "</span>
+        <span class="c1">#     "'pip install contextily'."</span>
+        <span class="c1"># )</span>
+        <span class="c1"># add_basemap arguments</span>
+        <span class="k">if</span> <span class="n">add_basemap_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_add_basemap_kws</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_add_basemap_kws</span> <span class="o">=</span> <span class="n">add_basemap_kws</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># _add_basemap_kws = {key: add_basemap_kws[key] for key in add_basemap_kws}</span>
+        <span class="k">if</span> <span class="n">attribution</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attribution</span> <span class="o">=</span> <span class="n">_add_basemap_kws</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+                <span class="s2">"attribution"</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEFAULT_PLOT_ATTRIBUTION</span>
+            <span class="p">)</span>
+        <span class="c1"># add basemap</span>
+        <span class="n">cx</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="n">crs</span><span class="o">=</span><span class="n">snapshot_gdf</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+            <span class="n">attribution</span><span class="o">=</span><span class="n">attribution</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">_add_basemap_kws</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="netatmo_geopy.settings">
+
+        <code>settings</code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Settings.</p>
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+</div>
+<div class="doc doc-object doc-module">
+<h2 class="doc doc-heading" id="netatmo_geopy.utils">
+
+        <code>utils</code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Utils (mostly from <code>osmnx.utils</code>).</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="netatmo_geopy.utils.log">
+
+        <code class="highlight language-python">
+log<span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Write a message to the logger.</p>
+<p>This logs to file and/or prints to the console (terminal), depending on
+the current configuration of <code>settings.LOG_FILE</code> and <code>settings.LOG_CONSOLE</code>.</p>
+<h2 id="parameters">Parameters</h2>
+<p>message : str
+    The message to log.
+level : int
+    One of Python's logger.level constants.
+name : str
+    Name of the logger.
+filename : str
+    Name of the log file, without file extension.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/utils.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Write a message to the logger.</span>
+
+<span class="sd">    This logs to file and/or prints to the console (terminal), depending on</span>
+<span class="sd">    the current configuration of `settings.LOG_FILE` and `settings.LOG_CONSOLE`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    message : str</span>
+<span class="sd">        The message to log.</span>
+<span class="sd">    level : int</span>
+<span class="sd">        One of Python's logger.level constants.</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Name of the logger.</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Name of the log file, without file extension.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">LOG_LEVEL</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">LOG_NAME</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">LOG_FILENAME</span>
+
+    <span class="c1"># if logging to file is turned on</span>
+    <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">LOG_FILE</span><span class="p">:</span>
+        <span class="c1"># get the current logger (or create a new one, if none), then log</span>
+        <span class="c1"># message at requested level</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">_get_logger</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="n">lg</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="n">lg</span><span class="o">.</span><span class="n">INFO</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="n">lg</span><span class="o">.</span><span class="n">WARNING</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="n">lg</span><span class="o">.</span><span class="n">ERROR</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+    <span class="c1"># if logging to console (terminal window) is turned on</span>
+    <span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">LOG_CONSOLE</span><span class="p">:</span>
+        <span class="c1"># prepend timestamp</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ts</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">"</span>
+
+        <span class="c1"># convert to ascii so it doesn't break windows terminals</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">unicodedata</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="s2">"NFKD"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">"replace"</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="c1"># print explicitly to terminal in case jupyter notebook is the stdout</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s2">"_original_stdstream_copy"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># redirect captured pipe back to original</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">dup2</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">_original_stdstream_copy</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">_original_stdstream_copy</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">with</span> <span class="n">redirect_stdout</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="netatmo_geopy.utils.ts">
+
+        <code class="highlight language-python">
+ts<span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">'datetime'</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h3>
+<div class="doc doc-contents ">
+<p>Get current timestamp as str.</p>
+<h2 id="parameters">Parameters</h2>
+<p>style : str {"datetime", "date", "time"}
+    Format the timestamp with this built-in template.
+template : str
+    If not None, format the timestamp with this template instead of one of the
+    built-in styles.</p>
+<h2 id="returns">Returns</h2>
+<p>ts : str
+    The string timestamp.</p>
+<details class="quote">
+<summary>Source code in <code>netatmo_geopy/utils.py</code></summary>
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">ts</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"datetime"</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Get current timestamp as str.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    style : str {"datetime", "date", "time"}</span>
+<span class="sd">        Format the timestamp with this built-in template.</span>
+<span class="sd">    template : str</span>
+<span class="sd">        If not None, format the timestamp with this template instead of one of the</span>
+<span class="sd">        built-in styles.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ts : str</span>
+<span class="sd">        The string timestamp.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">template</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">"datetime"</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="s2">"{:%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S}"</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">"date"</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="s2">"{:%Y-%m-</span><span class="si">%d</span><span class="s2">}"</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">"time"</span><span class="p">:</span>
+            <span class="n">template</span> <span class="o">=</span> <span class="s2">"{:%H:%M:%S}"</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'unrecognized timestamp style "</span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1">"'</span><span class="p">)</span>
+
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">ts</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../usage/" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../usage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
