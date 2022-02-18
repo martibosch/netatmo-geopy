@@ -140,6 +140,8 @@ cws_recorder = nat.CWSRecorder(
 
 See [the documentation of schedule](https://schedule.readthedocs.io/) for more examples on scheduling periodic jobs.
 
+**Note that Netatmo CWS data are measured every 5 minutes by the modules and sent to the servers every 10 minutes, so the period when recording CWS data should not be shorter than 10 minutes.**
+
 ### Assemble CWS snapshots into a single time-series geo-data frame
 
 After a time series of snapshots have been dumped to a directory, the `CWSDataset` class can be used to assemble the data into a single geo-data frame, i.e., the `temperature_gdf` attribute:
