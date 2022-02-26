@@ -144,11 +144,11 @@ See [the documentation of schedule](https://schedule.readthedocs.io/) for more e
 
 ### Assemble CWS snapshots into a single time-series geo-data frame
 
-After a time series of snapshots have been dumped to a directory, the `CWSDataset` class can be used to assemble the data into a single geo-data frame, i.e., the `temperature_gdf` attribute:
+After a time series of snapshots have been dumped to a directory, the `CWSDataset` class can be used to assemble the data into a single geo-data frame, i.e., the `ts_gdf` attribute:
 
 ```python
 cws_dataset = nat.CWSDataset(snapshot_data_dir=snapshot_data_dir)
-cws_dataset.temperature_gdf.head()
+cws_dataset.ts_gdf.head()
 ```
 
 <div>

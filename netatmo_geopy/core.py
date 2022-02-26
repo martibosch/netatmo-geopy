@@ -436,19 +436,22 @@ class CWSDataset(object):
     def __init__(
         self,
         *,
+        ts_gdf_filepath=None,
         snapshot_filepaths=None,
         snapshot_data_dir=None,
         snapshot_file_ext=None,
-        datetime_format=None,
     ):
         """
         Initialize a CWS dataset from recorded snapshot files.
 
         Parameters
         ----------
+        ts_gdf_filepath : str, path or file-like object, optional
+            Path to the input time series geo-data frame file, passed to
+            `geopandas.read_file`.
         snapshot_filepaths : list-like of str, path or file-like objects, optional
             List of paths to the input snapshot recording files, passed to
-            `geopandas.read_file`.
+            `geopandas.read_file`. Ignored if `ts_gdf_filepath` is provided.
         snapshot_data_dir : str or pathlib.Path object
             Path to the directory where the snapshot recording files are located.
             Ignored if `snapshot_filepaths` is provided.
@@ -457,30 +460,21 @@ class CWSDataset(object):
             files in `snapshot_data_dir`. If None, the default value from
             `settings.DEFAULT_SNAPSHOT_FILE_EXT` is used. Ignored if
             `snapshot_filepaths` is provided.
-        datetime_format : str, optional
-            Datetime format string. Used to name the geo-data frame columns and the
-            snapshot file dumps. If None, the default value from
-            `settings.DEFAULT_DATETIME_FORMAT` is used.
         """
         super(CWSDataset, self).__init__()
 
-        if snapshot_filepaths is None:
-            if snapshot_file_ext is None:
-                snapshot_file_ext = settings.DEFAULT_SNAPSHOT_FILE_EXT
-            snapshot_filepaths = glob.glob(
-                path.join(snapshot_data_dir, f"*.{snapshot_file_ext}")
-            )
-        self.snapshot_filepaths = snapshot_filepaths
+        if ts_gdf_filepath is None:
+            if snapshot_filepaths is None:
+                if snapshot_file_ext is None:
+                    snapshot_file_ext = settings.DEFAULT_SNAPSHOT_FILE_EXT
+                snapshot_filepaths = glob.glob(
+                    path.join(snapshot_data_dir, f"*.{snapshot_file_ext}")
+                )
+            # self.snapshot_filepaths = snapshot_filepaths
 
-        if datetime_format is None:
-            datetime_format = settings.DEFAULT_DATETIME_FORMAT
-        self.datetime_format = datetime_format
-
-    @property
-    def temperature_gdf(self):
-        """Time series of temperature measurements at the station locations."""
-        try:
-            return self._temperature_gdf
-        except AttributeError:
-            self._temperature_gdf = _join_snapshot_gdfs(self.snapshot_filepaths)
-            return self._temperature_gdf
+            ts_gdf = _join_snapshot_gdfs(snapshot_filepaths)
+        else:
+            # if ts_index_col is None:
+            #     ts_index_col = settings.DEFAULT_TS_INDEX_COL
+            ts_gdf = gpd.read_file(ts_gdf_filepath).set_index("station_id")
+        self.ts_gdf = ts_gdf

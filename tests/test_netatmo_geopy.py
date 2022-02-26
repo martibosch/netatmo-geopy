@@ -50,25 +50,30 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
         time.sleep(2)
 
     # test `CWSDataset`
+    # test that the time series geo-data frame has the right shape
     cws_dataset = nat.CWSDataset(snapshot_data_dir=datadir)
-    assert len(cws_dataset.snapshot_filepaths) == len(response_ids)
-    assert cws_dataset.temperature_gdf.shape == (2, 3)
+    assert cws_dataset.ts_gdf.shape == (2, 3)
+    # test that we can also instantiate the dataset from the time series geo-dataframe
+    ts_gdf_filepath = datadir / "ts-gdf.gpkg"
+    cws_dataset.ts_gdf.to_file(ts_gdf_filepath)
+    cws_dataset = nat.CWSDataset(ts_gdf_filepath=ts_gdf_filepath)
+    assert cws_dataset.ts_gdf.shape == (2, 3)
 
     # test plotting
     # use `add_basemap=False` to avoid having to mock contextily's requests
-    ax = nat.plot_snapshot(cws_dataset.temperature_gdf, add_basemap=False)
+    ax = nat.plot_snapshot(cws_dataset.ts_gdf, add_basemap=False)
     assert len(ax.collections[0].get_array()) == 2
     assert len(ax.get_title()) > 0
-    ax = nat.plot_snapshot(cws_dataset.temperature_gdf, title=False, add_basemap=False)
+    ax = nat.plot_snapshot(cws_dataset.ts_gdf, title=False, add_basemap=False)
     assert len(ax.get_title()) == 0
 
     axes = [
         nat.plot_snapshot(
-            cws_dataset.temperature_gdf,
+            cws_dataset.ts_gdf,
             snapshot_column=snapshot_column,
             add_basemap=False,
         )
-        for snapshot_column in cws_dataset.temperature_gdf.columns.drop("geometry")
+        for snapshot_column in cws_dataset.ts_gdf.columns.drop("geometry")
     ]
     assert not np.array_equal(
         axes[0].collections[0].get_array(), axes[1].collections[0].get_array()
