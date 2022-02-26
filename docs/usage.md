@@ -107,7 +107,7 @@ You can also use the `plot_snapshot` to plot the data on a map:
 nat.plot_snapshot(gdf)
 ```
 
-![lausanne-snapshot](https://github.com/martibosch/netatmo-geopy/blob/main/docs/figures/lausanne.png)
+![lausanne-snapshot](https://github.com/martibosch/netatmo-geopy/raw/main/docs/figures/lausanne.png)
 
 ### Schedule a periodic job to record CWS data for a region
 
