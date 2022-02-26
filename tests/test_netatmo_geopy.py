@@ -59,7 +59,7 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
 
     # test saving raw responses
     cws_recorder_kws["save_responses"] = True
-    settings.DEFAULT_SAVE_RESPONSES_DIR = datadir
+    settings.SAVE_RESPONSES_DIR = datadir
     cws_recorder = nat.CWSRecorder(*cws_recorder_args, **cws_recorder_kws)
     response_filepattern = path.join(datadir, "*.json")
     num_datadir_files = len(glob.glob(response_filepattern))

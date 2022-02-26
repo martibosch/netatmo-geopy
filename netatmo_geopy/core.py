@@ -146,35 +146,34 @@ def plot_snapshot(  # noqa: C901
     ax : `matplotlib.axes.Axes` instancd, optional
         Plot in given axis. If None creates a new figure.
     cmap : str or `matplotlib.colors.Colormap` instance, optional
-        Colormap of the plot. If None, the default value from
-        `settings.DEFAULT_PLOT_CMAP` is used.
+        Colormap of the plot. If None, the value from `settings.PLOT_CMAP` is used.
     legend : bool, optional
-        Whether a legend should be added to the plot. If None, the default value from
-        `settings.DEFAULT_PLOT_LEGEND` is used.
+        Whether a legend should be added to the plot. If None, the value from
+        `settings.PLOT_LEGEND` is used.
     legend_position : str {"left", "right", "bottom", "top"}, optional
         Position of the legend axes, passed to
         `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the
-        default value from `settings.DEFAULT_PLOT_LEGEND_POSITION` is used.
+        value from `settings.PLOT_LEGEND_POSITION` is used.
     legend_size : numeric or str, optional
         Size of the legend axes, passed to
         `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the
-        default value from `settings.DEFAULT_PLOT_LEGEND_SIZE` is used.
+        value from `settings.PLOT_LEGEND_SIZE` is used.
     legend_pad : numeric or str, optional
         Padding between the plot and legend axes, passed to
         `mpl_toolkits.axes_grid1.axes_divider.AxesDivider.append_axes`. If None, the
-        default value from `settings.DEFAULT_PLOT_LEGEND_PAD` is used.
+        value from `settings.PLOT_LEGEND_PAD` is used.
     title : bool or str, optional
         Whether a title should be added to the plot. If True, the timestamp of the
         snapshot (geo-data frame column) is used. It is also possible to pass a string
-        so that it is used as title label (instead of the timestamp). If None, the
-        default value from `settings.DEFAULT_PLOT_TITLE` is used.
+        so that it is used as title label (instead of the timestamp). If None, the value
+        from `settings.PLOT_TITLE` is used.
     add_basemap : bool, optional
         Whether a basemap should be added to the plot using `contextily.add_basemap`. If
-        None, the default value from `settings.DEFAULT_PLOT_ADD_BASEMAP` is used.
+        None, the value from `settings.PLOT_ADD_BASEMAP` is used.
     attribution : str or bool, optional
         Attribution text for the basemap source, added to the bottom of the plot, passed
         to `contextily.add_basemap`. If False, no attribution is added. If None, the
-        default value from `settings.DEFAULT_PLOT_ATTRIBUTION` is used.
+        value from `settings.PLOT_ATTRIBUTION` is used.
     subplot_kws, plot_kws, set_title_kws, add_basemap_kws, append_axes_kws : dict, \
                                                                              optional
         Keyword arguments passed to `matplotlib.pyplot.subplots`,
@@ -203,23 +202,23 @@ def plot_snapshot(  # noqa: C901
         _plot_kws = plot_kws.copy()
     # _plot_kws = {key: plot_kws[key] for key in plot_kws}
     if cmap is None:
-        cmap = _plot_kws.pop("cmap", settings.DEFAULT_PLOT_CMAP)
+        cmap = _plot_kws.pop("cmap", settings.PLOT_CMAP)
     if legend is None:
-        legend = _plot_kws.pop("legend", settings.DEFAULT_PLOT_LEGEND)
+        legend = _plot_kws.pop("legend", settings.PLOT_LEGEND)
 
     # plot
     if legend:
         divider = make_axes_locatable(ax)
         if legend_position is None:
-            legend_position = settings.DEFAULT_PLOT_LEGEND_POSITION
+            legend_position = settings.PLOT_LEGEND_POSITION
         if legend_size is None:
-            legend_size = settings.DEFAULT_PLOT_LEGEND_SIZE
+            legend_size = settings.PLOT_LEGEND_SIZE
         if append_axes_kws is None:
             _append_axes_kws = {}
         else:
             _append_axes_kws = append_axes_kws.copy()
         if legend_pad is None:
-            legend_pad = _append_axes_kws.pop("pad", settings.DEFAULT_PLOT_LEGEND_PAD)
+            legend_pad = _append_axes_kws.pop("pad", settings.PLOT_LEGEND_PAD)
         _plot_kws["cax"] = divider.append_axes(
             legend_position, legend_size, pad=legend_pad, **_append_axes_kws
         )
@@ -227,7 +226,7 @@ def plot_snapshot(  # noqa: C901
         column=snapshot_column, cmap=cmap, ax=ax, legend=legend, **_plot_kws
     )
     if title is None:
-        title = settings.DEFAULT_PLOT_TITLE
+        title = settings.PLOT_TITLE
     if title:
         if title is True:
             title_label = snapshot_column
@@ -239,7 +238,7 @@ def plot_snapshot(  # noqa: C901
 
     # basemap
     if add_basemap is None:
-        add_basemap = settings.DEFAULT_PLOT_ADD_BASEMAP
+        add_basemap = settings.PLOT_ADD_BASEMAP
     if add_basemap:
         # raise ImportError(
         #     "The contextily package is required for adding basemaps. "
@@ -253,9 +252,7 @@ def plot_snapshot(  # noqa: C901
             _add_basemap_kws = add_basemap_kws.copy()
         # _add_basemap_kws = {key: add_basemap_kws[key] for key in add_basemap_kws}
         if attribution is None:
-            attribution = _add_basemap_kws.pop(
-                "attribution", settings.DEFAULT_PLOT_ATTRIBUTION
-            )
+            attribution = _add_basemap_kws.pop("attribution", settings.PLOT_ATTRIBUTION)
         # add basemap
         cx.add_basemap(
             ax=ax,
@@ -301,7 +298,7 @@ class CWSRecorder(object):
         dst_dir : str or pathlib.Path object, optional
             Path to the directory where the recorded snapshots are to be dumped. Only
             used when the `dump_snapshot_gdf` method is called, ignored otherwise. If
-            None, the default value from `settings.DEAFULT_DST_DIR`.
+            None, the value from `settings.RECORDER_DST_DIR`.
         client_id, client_secret, username, password : str, optional
             Authentication credentials for Netatmo. If None, the respective values set
             in the "NETATMO_CLIENT_ID", "NETATMO_CLIENT_SECRET", "NETATMO_USERNAME" and
@@ -336,20 +333,19 @@ class CWSRecorder(object):
               `datetime.strptime` behaviour.
         datetime_format : str, optional
             Datetime format string. Used to name the geo-data frame columns and the
-            snapshot file dumps. If None, the default value from
-            `settings.DEFAULT_DATETIME_FORMAT` is used.
+            snapshot file dumps. If None, the value from `settings.DATETIME_FORMAT` is
+            used.
         snapshot_file_ext : str, optional
             File extension used when dumping recorded snapshot files, which must match
             an OGR vector format driver (see `fiona.supported_drivers`). If None, the
-            default value from `settings.DEFAULT_SNAPSHOT_FILE_EXT` is used.
+            value from `settings.SNAPSHOT_FILE_EXT` is used.
         save_responses : bool, optional
             Whether the JSON responses from the Netatmo public data API calls are
-            stored. If None, the default value from `settings.DEFAULT_SAVE_RESPONSES`is
-            used.
+            stored. If None, the value from `settings.SAVE_RESPONSES` is used.
         save_responses_dir : str or pathlib.Path object, optional.
             Path to the directory where the JSON responses are to be stored. If None,
-            the default value from `settings.DEFAULT_SAVE_RESPONSES_DIR`is used. Ignored
-            if `save_responses` is False.
+            the value from `settings.SAVE_RESPONSES_DIR` is used. Ignored if
+            `save_responses` is False.
         """
         super(CWSRecorder, self).__init__()
 
@@ -367,16 +363,16 @@ class CWSRecorder(object):
 
         # IO
         if datetime_format is None:
-            datetime_format = settings.DEFAULT_DATETIME_FORMAT
+            datetime_format = settings.DATETIME_FORMAT
         self.datetime_format = datetime_format
         if snapshot_file_ext is None:
-            snapshot_file_ext = settings.DEFAULT_SNAPSHOT_FILE_EXT
+            snapshot_file_ext = settings.SNAPSHOT_FILE_EXT
         self.snapshot_file_ext = snapshot_file_ext
         if save_responses is None:
-            save_responses = settings.DEFAULT_SAVE_RESPONSES
+            save_responses = settings.SAVE_RESPONSES
         self.save_responses = save_responses
         if save_responses_dir is None:
-            save_responses_dir = settings.DEFAULT_SAVE_RESPONSES_DIR
+            save_responses_dir = settings.SAVE_RESPONSES_DIR
         self.save_responses_dir = save_responses_dir
 
         # schedule
@@ -457,16 +453,16 @@ class CWSDataset(object):
             Ignored if `snapshot_filepaths` is provided.
         snapshot_file_ext : str, optional
             File extension of the snapshot recording, used to obtain the list of input
-            files in `snapshot_data_dir`. If None, the default value from
-            `settings.DEFAULT_SNAPSHOT_FILE_EXT` is used. Ignored if
-            `snapshot_filepaths` is provided.
+            files in `snapshot_data_dir`. If None, the value from
+            `settings.SNAPSHOT_FILE_EXT` is used. Ignored if `snapshot_filepaths` is
+            provided.
         """
         super(CWSDataset, self).__init__()
 
         if ts_gdf_filepath is None:
             if snapshot_filepaths is None:
                 if snapshot_file_ext is None:
-                    snapshot_file_ext = settings.DEFAULT_SNAPSHOT_FILE_EXT
+                    snapshot_file_ext = settings.SNAPSHOT_FILE_EXT
                 snapshot_filepaths = glob.glob(
                     path.join(snapshot_data_dir, f"*.{snapshot_file_ext}")
                 )
@@ -474,7 +470,5 @@ class CWSDataset(object):
 
             ts_gdf = _join_snapshot_gdfs(snapshot_filepaths)
         else:
-            # if ts_index_col is None:
-            #     ts_index_col = settings.DEFAULT_TS_INDEX_COL
             ts_gdf = gpd.read_file(ts_gdf_filepath).set_index("station_id")
         self.ts_gdf = ts_gdf
