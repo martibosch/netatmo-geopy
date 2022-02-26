@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 """Tests for `netatmo_geopy` package."""
 # pylint: disable=redefined-outer-name
+import glob
 import json
 import logging as lg
+import threading
 import time
+from datetime import datetime, timedelta
+from os import path
 
 import numpy as np
 import pytest
+import schedule
 
 import netatmo_geopy as nat
 from netatmo_geopy import settings, utils
@@ -30,11 +35,13 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
     # test `CWSRecorder`
     # `datetime_format` is provided to ensure different file names when dumping the
     # snapshots
-    cws_recorder = nat.CWSRecorder(
+    cws_recorder_args = [
         1,
         2,
         3,
         4,
+    ]
+    cws_recorder_kws = dict(
         dst_dir=datadir,
         client_id="abcd",
         client_secret="abcd",
@@ -42,12 +49,58 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
         password="doe",
         datetime_format="%Y-%m-%dT%H:%M:%S",
     )
+    cws_recorder = nat.CWSRecorder(*cws_recorder_args, **cws_recorder_kws)
     for response_id in response_ids:
         with open(shared_datadir / f"response-{response_id}.json") as src:
             requests_mock.get(settings.PUBLIC_DATA_URL, json=json.load(src))
         cws_recorder.dump_snapshot_gdf()
         # to ensure different file names when dumping the snapshots
         time.sleep(2)
+
+    # test saving raw responses
+    cws_recorder_kws["save_responses"] = True
+    settings.DEFAULT_SAVE_RESPONSES_DIR = datadir
+    cws_recorder = nat.CWSRecorder(*cws_recorder_args, **cws_recorder_kws)
+    response_filepattern = path.join(datadir, "*.json")
+    num_datadir_files = len(glob.glob(response_filepattern))
+    for response_id in response_ids:
+        with open(shared_datadir / f"response-{response_id}.json") as src:
+            requests_mock.get(settings.PUBLIC_DATA_URL, json=json.load(src))
+        cws_recorder.get_snapshot_gdf()
+    assert len(glob.glob(response_filepattern)) == num_datadir_files + len(response_ids)
+
+    # test schedule
+    # this is quite a hacky test, since `schedule` does not run in the background and we
+    # want to avoid tests that take too long to execute (especially with long idle
+    # periods).
+    # Hence, we will use a thread to start the recorder, and another to first verify
+    # that the recorder has scheduled jobs, and then cancel them so that we do not have
+    # to wait for the recorder to finish.
+    _ = cws_recorder_kws.pop("save_responses")
+    cws_recorder_kws.update(
+        time_unit="minutes",
+        interval=3,
+        at=":30",
+        until=datetime.now() + timedelta(minutes=10),
+    )
+
+    # we need to use a "global" variable because we cannot get function return values
+    # when using threads
+    num_jobs_dict = {}
+
+    def _get_and_cancel_jobs(num_jobs_dict):
+        num_jobs_dict["num_jobs"] = len(schedule.get_jobs())
+        schedule.clear()
+
+    t1 = threading.Thread(
+        target=nat.CWSRecorder,
+        args=cws_recorder_args,
+        kwargs=cws_recorder_kws,
+    )
+    t1.start()
+    t2 = threading.Thread(target=_get_and_cancel_jobs, args=(num_jobs_dict,))
+    t2.start()
+    assert num_jobs_dict["num_jobs"] > 0
 
     # test `CWSDataset`
     # test that the time series geo-data frame has the right shape
