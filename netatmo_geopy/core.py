@@ -16,7 +16,9 @@ import schedule
 import tqdm
 from fiona import errors as fiona_errors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+from scipy.stats import norm
 from shapely import geometry
+from statsmodels.robust import scale
 
 from . import auth, settings, utils
 
@@ -472,3 +474,108 @@ class CWSDataset(object):
         else:
             ts_gdf = gpd.read_file(ts_gdf_filepath).set_index("station_id")
         self.ts_gdf = ts_gdf
+
+    def get_mislocated_stations(self):
+        """
+        Get mislocated stations.
+
+        When multiple stations share the same location, it is likely due to an incorrect
+        set up that led to automatic location assignment based on the IP address of the
+        wireless network.
+
+        Returns
+        -------
+        mislocated_stations : `pandas.Series`
+            Boolean series indicating whether a station (index) is mislocated (indicated
+            by a value of `True`).
+        """
+        # ACHTUNG: this approach to dropping geometry duplicates only works for point
+        # geometries - see https://github.com/geopandas/geopandas/issues/521
+        return (
+            self.ts_gdf["geometry"].apply(lambda geom: geom.wkb).duplicated(keep=False)
+        )
+
+    def get_outlier_stations(
+        self, *, low_alpha=None, high_alpha=None, station_outlier_threshold=None
+    ):
+        """
+        Get outlier stations.
+
+        Measurements can show suspicious deviations from a normal distribution (based on
+        a modified z-score using robust Qn variance estimators). Stations with high
+        proportion of such measurements can be related to radiative errors in non-shaded
+        areas or other measurement errors.
+
+        Parameters
+        ----------
+        low_alpha, high_alpha : numeric, optional
+            Values for the lower and upper tail respectively (in proportion from 0 to 1)
+            that lead to the rejection of the null hypothesis (i.e., the corresponding
+            measurement does not follow a normal distribution can be considered an
+            outlier). If None, the respective values from `settings.OUTLIER_LOW_ALPHA`
+            and `settings.OUTLIER_HIGH_ALPHA` are used.
+        station_outlier_threshold : numeric, optonal
+            Maximum proportion (from 0 to 1) of outlier measurements after which the
+            respective station may be flagged as faulty. If None, the value from
+            `settings.STATION_OUTLIER_THRESHOLD` is used.
+
+        Returns
+        -------
+        outlier_stations : `pandas.Series`
+            Boolean series indicating whether a station (index) is considered an outlier
+            (indicated by a value of `True`).
+        """
+
+        def z_score(x):
+            return (x - x.median()) / scale.qn_scale(x.dropna())
+
+        if low_alpha is None:
+            low_alpha = settings.OUTLIER_LOW_ALPHA
+        if high_alpha is None:
+            high_alpha = settings.OUTLIER_HIGH_ALPHA
+        if station_outlier_threshold is None:
+            station_outlier_threshold = settings.STATION_OUTLIER_THRESHOLD
+        ts_df = pd.DataFrame(self.ts_gdf.drop("geometry", axis=1).T)
+        nonnan_df = ~ts_df.isna()
+        low_z = norm.ppf(low_alpha)
+        high_z = norm.ppf(high_alpha)
+        outlier_df = (
+            ~ts_df.apply(z_score, axis=1).apply(
+                lambda z: z.between(low_z, high_z, inclusive="neither"), axis=1
+            )
+            & nonnan_df
+        )
+        prop_outlier_ser = outlier_df.sum() / nonnan_df.sum()
+
+        return prop_outlier_ser > station_outlier_threshold
+
+    def get_indoor_stations(self, *, station_indoor_corr_threshold=None):
+        """
+        Get indoor stations.
+
+        Stations whose time series of measurements show low correlations with the
+        spatial median time series are likely set up indoors.
+
+        Parameters
+        ----------
+        station_indoor_corr_threshold : numeric, optonal
+            Stations showing Pearson correlations (with the overall station median
+            distribution) lower than this threshold are likely set up indoors. If None,
+            the value from `settings.STATION_INDOOR_CORR_THRESHOLD` is used.
+
+        Returns
+        -------
+        indoor_stations : `pandas.Series`
+            Boolean series indicating whether a station (index) is likely set up indoors
+            (indicated by a value of `True`).
+        """
+        if station_indoor_corr_threshold is None:
+            station_indoor_corr_threshold = settings.STATION_INDOOR_CORR_THRESHOLD
+        ts_df = self.ts_gdf.drop("geometry", axis=1)
+        median_ser = ts_df.median()
+        corr_ser = ts_df.apply(
+            lambda station_ser: station_ser.corr(median_ser),
+            axis=1,
+        )
+
+        return corr_ser < station_indoor_corr_threshold

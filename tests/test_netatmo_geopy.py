@@ -9,6 +9,7 @@ import time
 from datetime import datetime, timedelta
 from os import path
 
+import geopandas as gpd
 import numpy as np
 import pytest
 import schedule
@@ -119,7 +120,6 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
     assert len(ax.get_title()) > 0
     ax = nat.plot_snapshot(cws_dataset.ts_gdf, title=False, add_basemap=False)
     assert len(ax.get_title()) == 0
-
     axes = [
         nat.plot_snapshot(
             cws_dataset.ts_gdf,
@@ -130,6 +130,50 @@ def test_core(requests_mock, datadir, shared_datadir, mock_auth):
     ]
     assert not np.array_equal(
         axes[0].collections[0].get_array(), axes[1].collections[0].get_array()
+    )
+
+    # test quality controls
+    # to that end, we first need a bigger time series geo-data frame, so we will create
+    # a fake one and set it as the `ts_gdf` attribute.
+    num_stations = 20
+    cws_dataset.ts_gdf = gpd.GeoDataFrame(
+        np.random.rand(num_stations, 50),
+        geometry=gpd.points_from_xy(
+            x=np.random.rand(num_stations), y=np.random.rand(num_stations)
+        ),
+    )
+    # mislocated stations
+    mislocated_stations = cws_dataset.get_mislocated_stations()
+    assert len(mislocated_stations) == num_stations
+    assert mislocated_stations.dtype == bool
+    # outlier stations
+    outlier_stations = cws_dataset.get_outlier_stations()
+    assert len(outlier_stations) == num_stations
+    assert outlier_stations.dtype == bool
+    # more technical test: if we make the acceptance (i.e., non outlier) range wider and
+    # set a higher threshold, there must be less outliers
+    num_outlier_stations = outlier_stations.sum()
+    assert (
+        num_outlier_stations
+        >= cws_dataset.get_outlier_stations(
+            low_alpha=settings.OUTLIER_LOW_ALPHA / 2,
+            high_alpha=settings.OUTLIER_HIGH_ALPHA
+            + (1 - settings.OUTLIER_HIGH_ALPHA) / 2,
+            station_outlier_threshold=settings.STATION_OUTLIER_THRESHOLD / 2,
+        ).sum()
+    )
+    # indoor stations
+    indoor_stations = cws_dataset.get_indoor_stations()
+    assert len(indoor_stations) == num_stations
+    assert indoor_stations.dtype == bool
+    # more technical test: if we make the correlation threshold lower, there must be
+    # less indoor stations
+    num_indoor_stations = indoor_stations.sum()
+    assert (
+        num_indoor_stations
+        >= cws_dataset.get_indoor_stations(
+            station_indoor_corr_threshold=settings.STATION_INDOOR_CORR_THRESHOLD / 2
+        ).sum()
     )
 
 

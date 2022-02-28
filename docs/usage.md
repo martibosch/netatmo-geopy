@@ -256,3 +256,62 @@ cws_dataset.ts_gdf.head()
   </tbody>
 </table>
 </div>
+
+#### Quality controls
+
+To ensure the quality and reliability of the collected CWS temperature measurements, the `CWSDataset` class implements three quality control methods based on the work of Napoly et al. (2018) [@napoly2018development].
+
+##### Duplicated station locations
+
+First, multiple stations may share the same location, which it is likely due to an incorrect set up that led to automatic location assignment based on the IP address of the wireless network. To that end, the `get_mislocated_stations` method can be used as in:
+
+```python
+mislocated_stations = cws_dataset.get_mislocated_stations()
+mislocated_stations.head()
+```
+
+    station_id
+    02:00:00:01:5e:e0    False
+    02:00:00:22:c0:c0    False
+    02:00:00:2f:0b:16    False
+    02:00:00:59:00:2a    False
+    02:00:00:52:ed:5a    False
+    Name: geometry, dtype: bool
+
+Then, [pandas boolean indexing](https://pandas.pydata.org/docs/user_guide/10min.html#boolean-indexing) can be used to filter out the mislocated stations from the time series geo-data frame as in:
+
+```python
+cws_dataset.ts_gdf[~mislocated_stations]
+```
+
+##### Outlier stations
+
+Measurements can show suspicious deviations from a normal distribution. Stations with high occurrence of such measurements can be related to radiative errors in non-shaded areas or other measurement errors [@meier2017crowdsourcing]. A boolean series of stations that may be considered outliers (based on a modified z-score using robust Qn variance estimators) can be obtained with the `get_outlier_stations` method as in:
+
+```python
+outlier_stations = cws_dataset.get_outlier_stations()
+```
+
+The statistical parameters used to determine whether a station is considered an outlier can be customized using the `low_alpha`, `high_alpha` and `station_outlier_threshold` arguments.
+
+##### Indoor stations
+
+Finally, stations whose time series of measurements show low correlations with the spatial median time series are likely set up indoors. These stations can be determined using the `get_indoor_stations` method as in:
+
+```python
+indoor_stations = cws_dataset.get_indoor_stations()
+```
+
+The Pearson correlation threshold to consider that a station is set up indoors can be customized using the `station_indoor_corr_threshold` argument.
+
+##### Combining quality controls
+
+In order to apply all quality controls, the boolean indexes described above can be combined as in:
+
+```python
+ts_qc_gdf = cws_dataset.ts_gdf[~(mislocated_stations | outlier_stations | indoor_stations)]
+```
+
+## References
+
+\bibliography

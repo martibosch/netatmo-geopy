@@ -23,6 +23,10 @@ plugins:
   - mkdocstrings:
       watch:
         - netatmo_geopy
+  - bibtex:
+      bib_file: "references.bib"
+markdown_extensions:
+  - footnotes
   # to enable disqus, uncomment the following and put your disqus id below
   # disqus: disqus_id
 # uncomment the following and put your google tracking id below to enable GA
