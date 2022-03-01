@@ -1,0 +1,13 @@
+name: netatmo-geopy
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - gdal>=3.3
+  - mkdocs=1.2.3
+  - pymdown-extensions=9.2
+  - pip>=20.1  # pip is needed as dependency
+  - pip:
+    - mkdocs-bibtex==2.0.1
+    - mkdocs-include-markdown-plugin==3.3.0
+    - mkdocstrings==0.18.0

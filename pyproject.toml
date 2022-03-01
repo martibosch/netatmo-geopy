@@ -38,7 +38,7 @@ tox  = { version = "^3.20.1", optional = true}
 virtualenv  = { version = "^20.2.2", optional = true}
 pip  = { version = "^20.3.1", optional = true}
 mkdocs  = { version = "^1.2.3", optional = true}
-mkdocs-include-markdown-plugin  = { version = "^1.0.0", optional = true}
+mkdocs-include-markdown-plugin  = { version = "^3.3.0", optional = true}
 mkdocstrings = { version = "^0.18.0", optional = true}
 twine  = { version = "^3.3.0", optional = true}
 mkdocs-autorefs = {version = "^0.3.1", optional = true}
@@ -55,6 +55,7 @@ pandas = "1.4"
 numpy = "1.22"
 scipy = "^1.8.0"
 statsmodels = "^0.13.2"
+mkdocs-bibtex = "^2.0.1"
 
 [tool.poetry.extras]
 test = [
